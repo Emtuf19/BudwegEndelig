@@ -65,10 +65,10 @@ SELECT
     e.EmployeeId AS E_EmployeeId, e.EmployeeName, e.StationId AS E_StationId,
 
     st.StationId AS St_StationId, st.StationName
-FROM DeliveryNotes dn
-LEFT JOIN DeliveryNoteSteps s ON dn.DeliveryNoteId = s.DeliveryNoteId
-LEFT JOIN Employees e ON s.EmployeeId = e.EmployeeId
-LEFT JOIN Stations st ON e.StationId = st.StationId
+FROM DeliveryNote dn
+LEFT JOIN DeliveryNoteStep s ON dn.DeliveryNoteId = s.DeliveryNoteId
+LEFT JOIN Employee e ON s.EmployeeId = e.EmployeeId
+LEFT JOIN Station st ON e.StationId = st.StationId
 ORDER BY dn.DeliveryNoteId, s.StepId;
 ";
 
@@ -191,10 +191,10 @@ SELECT
     e.EmployeeId AS E_EmployeeId, e.EmployeeName, e.StationId AS E_StationId,
 
     st.StationId AS St_StationId, st.StationName
-FROM DeliveryNotes dn
-LEFT JOIN DeliveryNoteSteps s ON dn.DeliveryNoteId = s.DeliveryNoteId
-LEFT JOIN Employees e ON s.EmployeeId = e.EmployeeId
-LEFT JOIN Stations st ON e.StationId = st.StationId
+FROM DeliveryNote dn
+LEFT JOIN DeliveryNoteStep s ON dn.DeliveryNoteId = s.DeliveryNoteId
+LEFT JOIN Employee e ON s.EmployeeId = e.EmployeeId
+LEFT JOIN Station st ON e.StationId = st.StationId
 WHERE dn.DeliveryNoteId = @id
 ORDER BY s.StepId;
 ";
