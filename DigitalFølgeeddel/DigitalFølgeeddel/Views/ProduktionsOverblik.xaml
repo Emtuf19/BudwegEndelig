@@ -1,0 +1,125 @@
+﻿<Window x:Class="DigitalFølgeeddel_WPF.ProduktionsOverblik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DigitalFølgeeddel_WPF"
+        mc:Ignorable="d"
+        Title="Produktions Overblik" Height="720" Width="1280"
+        WindowStartupLocation="CenterScreen"
+        Background= "White">
+    <Grid>
+        <!--Top Bar-->
+        <Grid Margin="30" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" >
+                <Label FontWeight="Bold" FontSize="60" Foreground="#FF00AC58" Margin="0" >
+                    Budweg
+                </Label>
+                <Label Margin="20,14,0,0" FontSize="45" FontWeight="Bold" Foreground="Black">
+                    Produktions Overblik
+                </Label>
+                <Button  x:Name="btnRetur" Margin="10,20" HorizontalAlignment="Right" Width="100" Click="btnRetur_Click">
+                    Retur
+                </Button>
+                <StackPanel Width="130" Margin="10,20" Background="#FF00AC58" Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock FontSize="20" Foreground="White" Padding="5,10,0,10">
+                        Søg:
+                    </TextBlock>
+                    <TextBox BorderThickness="0" Margin="2,10"  FontSize="20" x:Name="txtSearch" Width="75" TextChanged="txtSearch_TextChanged" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF0E6DD6" BorderBrush="#FF0D48F9"/>
+                </StackPanel>
+                <!--<Button x:Name="btnSøg" Margin="10,20" HorizontalAlignment="Right" Width="100">
+                    Søg
+                </Button>-->
+                <Button x:Name="BtnRediger" Margin="10,20" HorizontalAlignment="Right" Width="100">
+                    Rediger
+                </Button>
+                <Button x:Name="BtnSlet" Margin="10,20" HorizontalAlignment="Right" Width="100" Background="DarkRed">
+                    Slet
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--Grøn Box-->
+        <Border Background="#FF00AC58" BorderBrush="BLACK" BorderThickness="2" Margin="20,120,20,20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <StackPanel>
+                    <!--Flere af denne list box, for flere følgeseddler-->
+                    <ListBox ItemsSource="{Binding WorkOrders}" Background="#FF00AC58" Margin="0" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                        <ListBox.Resources>
+                            <Style TargetType="TextBlock">
+                                <Setter Property="Foreground" Value="White"/>
+                            </Style>
+                        </ListBox.Resources>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <!--Expander er klik for drop down-->
+                                    <Expander>
+                                        <Expander.Header>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock FontWeight="SemiBold" FontSize="22">
+                                FølgeseddelNr:
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding WorkOrderNr, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
+
+                                                <TextBlock Margin="20,0,0,0" FontWeight="SemiBold" FontSize="22">
+                                OrdreNr:
+                                                </TextBlock>
+                                                <TextBlock Text="{Binding OrderNr, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
+                                            </StackPanel>
+                                        </Expander.Header>
+                                        <!--En af disse for hver station-->
+                                        <ListBox Background="#FF00AC58" ItemsSource="{Binding StationID}" BorderThickness="0" FontSize="17">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel>
+                                                        <WrapPanel Margin="0,10,0,0">
+                                                            <TextBlock Width="70" FontWeight="Bold">
+                                Station:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding StationName, FallbackValue='Rengøring'}" Width="210" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="110" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" FontWeight="Bold">
+                                Dato/Tid ind:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding DateTimeIn, FallbackValue='12:00 - 24/12-2025'}" Width="170" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="110" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" FontWeight="Bold">
+                                Dato/Tid ud:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding DateTimeOut, FallbackValue='12:36 - 24/12-2025'}" Width="170" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="90" Grid.Row="0" Grid.Column="6" Margin="20,0,0,0" FontWeight="Bold">
+                                Ansvarlig:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Ansvarlig, FallbackValue='Pia Kjærsgaard'}" Width="190" Margin="10,0,0,0"/>
+                                                        </WrapPanel>
+
+                                                        <WrapPanel>
+                                                            <TextBlock Width="70" Grid.Row="1" Grid.Column="0" FontWeight="Bold">
+                                Tilgang:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Tilgang, FallbackValue='30'}" Width="210" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="110" Grid.Row="1" Grid.Column="2" Margin="20,0,0,0" FontWeight="Bold">
+                                Afgang frem:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding AfgangFrem, FallbackValue='26'}" Width="170" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="130" Grid.Row="1" Grid.Column="4" Margin="20,0,0,0" FontWeight="Bold">
+                                Afgang tilbage:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding AfgangTilbage, FallbackValue='2'}" Width="150" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="50" Grid.Row="1" Grid.Column="6"  Margin="20,0,0,0" FontWeight="Bold">
+                                Spild:
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Spild, FallbackValue='2'}" Width="2300" Margin="10,0,0,0"/>
+                                                        </WrapPanel>
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </Expander>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>

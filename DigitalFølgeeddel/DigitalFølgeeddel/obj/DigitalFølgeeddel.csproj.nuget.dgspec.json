@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\repos\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj": {}
+    "C:\\Users\\franz\\source\\repos\\BudwegEndelig\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\repos\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj": {
+    "C:\\Users\\franz\\source\\repos\\BudwegEndelig\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\repos\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj",
+        "projectUniqueName": "C:\\Users\\franz\\source\\repos\\BudwegEndelig\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj",
         "projectName": "DigitalFølgeeddel",
-        "projectPath": "C:\\Users\\USER\\source\\repos\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\repos\\DigitalFølgeeddel\\DigitalFølgeeddel\\obj\\",
+        "projectPath": "C:\\Users\\franz\\source\\repos\\BudwegEndelig\\DigitalFølgeeddel\\DigitalFølgeeddel\\DigitalFølgeeddel.csproj",
+        "packagesPath": "C:\\Users\\franz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\franz\\source\\repos\\BudwegEndelig\\DigitalFølgeeddel\\DigitalFølgeeddel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\franz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
