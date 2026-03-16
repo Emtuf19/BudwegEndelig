@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DigitalFølgeeddel")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+61f097556191fe993139d06d0866690c34d3b380")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dcbf24ec8b29d7978e44fbb6c296dfc355d564e")]
 [assembly: System.Reflection.AssemblyProductAttribute("DigitalFølgeeddel")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DigitalFølgeeddel")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

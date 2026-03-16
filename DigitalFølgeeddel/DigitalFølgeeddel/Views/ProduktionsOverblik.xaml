@@ -25,7 +25,7 @@
                     <TextBlock FontSize="20" Foreground="White" Padding="5,10,0,10">
                         Søg:
                     </TextBlock>
-                    <TextBox BorderThickness="0" Margin="2,10"  FontSize="20" x:Name="txtSearch" Width="75" TextChanged="txtSearch_TextChanged" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF0E6DD6" BorderBrush="#FF0D48F9"/>
+                    <TextBox BorderThickness="0" Margin="2,10"  FontSize="20" x:Name="txtSearch" Width="75" TextChanged="txtSearch_TextChanged" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#FF3FC82B" BorderBrush="#FF0D48F9" Opacity="1"/>
                 </StackPanel>
                 <!--<Button x:Name="btnSøg" Margin="10,20" HorizontalAlignment="Right" Width="100">
                     Søg
@@ -43,7 +43,7 @@
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <StackPanel>
                     <!--Flere af denne list box, for flere følgeseddler-->
-                    <ListBox ItemsSource="{Binding WorkOrders}" Background="#FF00AC58" Margin="0" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+                    <ListBox ItemsSource="{Binding DeliveryNotes}" Background="#FF00AC58" Margin="0" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
                         <ListBox.Resources>
                             <Style TargetType="TextBlock">
                                 <Setter Property="Foreground" Value="White"/>
@@ -59,16 +59,16 @@
                                                 <TextBlock FontWeight="SemiBold" FontSize="22">
                                 FølgeseddelNr:
                                                 </TextBlock>
-                                                <TextBlock Text="{Binding WorkOrderNr, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
+                                                <TextBlock Text="{Binding DeliveryNoteId, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
 
                                                 <TextBlock Margin="20,0,0,0" FontWeight="SemiBold" FontSize="22">
                                 OrdreNr:
                                                 </TextBlock>
-                                                <TextBlock Text="{Binding OrderNr, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
+                                                <TextBlock Text="{Binding FollowSlipNo, FallbackValue='123456'}" Margin="10,0,0,0" FontSize="22"/>
                                             </StackPanel>
                                         </Expander.Header>
                                         <!--En af disse for hver station-->
-                                        <ListBox Background="#FF00AC58" ItemsSource="{Binding StationID}" BorderThickness="0" FontSize="17">
+                                        <ListBox Background="#FF00AC58" ItemsSource="{Binding DeliveryNoteSteps}" BorderThickness="0" FontSize="16">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackPanel>
@@ -76,19 +76,19 @@
                                                             <TextBlock Width="70" FontWeight="Bold">
                                 Station:
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding StationName, FallbackValue='Rengøring'}" Width="210" Margin="10,0,0,0"/>
-                                                            <TextBlock Width="110" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" FontWeight="Bold">
+                                                            <TextBlock Text="{Binding Employee.Station.StationName, FallbackValue='Rengøring'}" Width="210" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="105" Grid.Row="0" Grid.Column="2" Margin="20,0,0,0" FontWeight="Bold">
                                 Dato/Tid ind:
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding DateTimeIn, FallbackValue='12:00 - 24/12-2025'}" Width="170" Margin="10,0,0,0"/>
-                                                            <TextBlock Width="110" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" FontWeight="Bold">
+                                                            <TextBlock Text="{Binding ArrivalTime, FallbackValue='12:00 - 24/12-2025'}" Width="175" Margin="10,0,0,0"/>
+                                                            <TextBlock Width="105" Grid.Row="0" Grid.Column="4" Margin="20,0,0,0" FontWeight="Bold">
                                 Dato/Tid ud:
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding DateTimeOut, FallbackValue='12:36 - 24/12-2025'}" Width="170" Margin="10,0,0,0"/>
+                                                            <TextBlock Text="{Binding FinishTime, FallbackValue='12:36 - 24/12-2025'}" Width="175" Margin="10,0,0,0"/>
                                                             <TextBlock Width="90" Grid.Row="0" Grid.Column="6" Margin="20,0,0,0" FontWeight="Bold">
                                 Ansvarlig:
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding Ansvarlig, FallbackValue='Pia Kjærsgaard'}" Width="190" Margin="10,0,0,0"/>
+                                                            <TextBlock Text="{Binding Employee.EmployeeName, FallbackValue='Pia Kjærsgaard'}" Width="190" Margin="10,0,0,0"/>
                                                         </WrapPanel>
 
                                                         <WrapPanel>
